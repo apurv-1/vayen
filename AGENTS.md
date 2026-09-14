@@ -5,7 +5,7 @@ Read README.md and docs/architecture.md before changing anything.
 
 ## Layout
 
-- `Packages/VayenCore` holds all logic and is the only place tests live. Build and test with `swift build` and `swift test` from that directory.
+- The root Swift package (`Package.swift`, `Sources/`, `Tests/`) holds all logic and is the only place tests live. Build and test with `swift build` and `swift test` from the repo root.
 - `Vayen/` and `Vayen.xcodeproj` are the thin SwiftUI app shell. No parsing, evidence, or provider code goes there.
 - `docs/` holds the public architecture notes. Update `docs/architecture.md` when a boundary or data flow changes; it must describe the code, not the plan.
 

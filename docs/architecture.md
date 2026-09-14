@@ -1,7 +1,7 @@
 # Vayen architecture
 
 This document describes how Vayen is built today and the rules the design is meant to hold.
-It is written against the code in `Packages/VayenCore`.
+It is written against the code in `Sources/VayenCore`.
 When the code and this document disagree, the code is the truth and this document has a bug.
 
 ## Shape
@@ -22,7 +22,7 @@ flowchart TD
   J[KeychainStore] --> F
 ```
 
-The library in `Packages/VayenCore` owns everything from the filesystem to the voice socket.
+The `VayenCore` library owns everything from the filesystem to the voice socket.
 The app target is a thin SwiftUI shell that renders state and forwards user intent.
 The `vayen-cli` executable drives the same library from a terminal, which is how most of the behavior is exercised during development.
 
@@ -160,7 +160,7 @@ That is governed by the user's own account with them, and Vayen should describe 
 
 ## Testing
 
-Tests live in `Packages/VayenCore/Tests/VayenCoreTests` and run with `swift test`.
+Tests live in `Tests/VayenCoreTests` and run with `swift test`.
 They use synthetic fixtures only.
 The adapter tests cover record kinds, title precedence, subagent association, and provenance.
 The tailer tests cover partial trailing lines, appends, and truncation with generation bumps.

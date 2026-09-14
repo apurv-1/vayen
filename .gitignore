@@ -3,7 +3,6 @@
 
 # SwiftPM
 .build/
-Packages/*/.build
 .swiftpm/
 !.swiftpm/Package.resolved
 

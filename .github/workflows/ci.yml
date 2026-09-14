@@ -24,12 +24,9 @@ jobs:
 
       - name: Swift version
         run: swift --version
-        working-directory: Packages/VayenCore
 
       - name: Build
         run: swift build -v
-        working-directory: Packages/VayenCore
 
       - name: Test
         run: swift test -v
-        working-directory: Packages/VayenCore

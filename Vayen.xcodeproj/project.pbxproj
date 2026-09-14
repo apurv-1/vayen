@@ -110,7 +110,7 @@
 			mainGroup = A10000000000000000000000;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A10000000000000000000028 /* XCLocalSwiftPackageReference "Packages/VayenCore" */,
+				A10000000000000000000028 /* XCLocalSwiftPackageReference "." */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A10000000000000000000004 /* Products */;
@@ -343,9 +343,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		A10000000000000000000028 /* XCLocalSwiftPackageReference "Packages/VayenCore" */ = {
+		A10000000000000000000028 /* XCLocalSwiftPackageReference "." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/VayenCore;
+			relativePath = .;
 		};
 /* End XCLocalSwiftPackageReference section */
 

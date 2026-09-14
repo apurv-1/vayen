@@ -16,7 +16,7 @@ You need macOS 15 or later on Apple Silicon and Xcode 16 or later.
 
 ```bash
 git clone https://github.com/apurv-1/vayen.git
-cd vayen/Packages/VayenCore
+cd vayen
 swift build
 swift test
 ```

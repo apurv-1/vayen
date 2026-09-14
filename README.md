@@ -101,7 +101,7 @@ It never touches the network unless you ask it to talk.
 
 ```bash
 git clone https://github.com/apurv-1/vayen.git
-cd vayen/Packages/VayenCore
+cd vayen
 swift build -c release
 ```
 
@@ -220,18 +220,18 @@ If it turns out to mean more, that is a bug in the boundary and worth an issue.
 ## Repository structure
 
 ```
-Packages/VayenCore/         Swift package. All logic lives here and is testable without the app.
-  Sources/VayenCore/
-    Contracts.swift         Shared types: SessionIdentity, NormalizedEvent, EvidenceSnapshot, ...
-    HarnessAdapter.swift    The boundary every coding agent integration implements
-    Claude/                 Claude Code adapter, JSONL record model, normalizer, tailer
-    Catalog/                Session list, load, poll, snapshot versioning
-    Evidence/               Snapshot builder and secret redaction
-    Conversation/           Coordinator binding one session to one voice conversation
-    Voice/                  VoiceProvider protocol, Deepgram implementation, mock
-    Settings/               Keychain and non-secret preferences
-  Sources/vayen-cli/        Command-line tool: discover, tail, evidence, talk
-  Tests/VayenCoreTests/     Fixture-based tests (synthetic transcripts only)
+Package.swift               Swift package. All logic lives here and is testable without the app.
+Sources/VayenCore/
+  Contracts.swift           Shared types: SessionIdentity, NormalizedEvent, EvidenceSnapshot, ...
+  HarnessAdapter.swift      The boundary every coding agent integration implements
+  Claude/                   Claude Code adapter, JSONL record model, normalizer, tailer
+  Catalog/                  Session list, load, poll, snapshot versioning
+  Evidence/                 Snapshot builder and secret redaction
+  Conversation/             Coordinator binding one session to one voice conversation
+  Voice/                    VoiceProvider protocol, Deepgram implementation, mock
+  Settings/                 Keychain and non-secret preferences
+Sources/vayen-cli/          Command-line tool: discover, tail, evidence, talk
+Tests/VayenCoreTests/       Fixture-based tests (synthetic transcripts only)
 Vayen/                      SwiftUI menu bar app (placeholder today)
 Vayen.xcodeproj             Xcode project for signing, entitlements, resources
 docs/                       Architecture and design notes
