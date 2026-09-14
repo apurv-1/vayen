@@ -177,8 +177,8 @@ struct ClaudeDiscoveryTests {
         let sessionID = file.deletingPathExtension().lastPathComponent
         let subDir = root.appendingPathComponent("-tmp-proj").appendingPathComponent(sessionID).appendingPathComponent("subagents")
         try FileManager.default.createDirectory(at: subDir, withIntermediateDirectories: true)
-        try [Fixture.assistant(uuid: "sa1", session: sessionID, ts: "2026-09-14T10:00:30Z", blocks: [Fixture.textBlock("subagent note")])]
-            .joined(separator: "\n")
+        try ([Fixture.assistant(uuid: "sa1", session: sessionID, ts: "2026-09-14T10:00:30Z", blocks: [Fixture.textBlock("subagent note")])]
+            .joined(separator: "\n") + "\n")
             .write(to: subDir.appendingPathComponent("agent-x.jsonl"), atomically: true, encoding: .utf8)
 
         let result = await ClaudeAdapter().discover(under: root)

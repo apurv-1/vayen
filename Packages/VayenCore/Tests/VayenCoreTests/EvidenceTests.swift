@@ -20,7 +20,7 @@ struct EvidenceTests {
         )
     }
 
-    private func event(_ kind: EventKind, content: EventContent, idx: Int, ts: Date? = nil) -> NormalizedEvent {
+    private func event(_ kind: EventKind, _ content: EventContent, idx: Int, ts: Date? = nil) -> NormalizedEvent {
         NormalizedEvent(
             source: SourceReference(fileKey: "main", generation: 0, recordIndex: idx),
             timestamp: ts ?? Date(timeIntervalSince1970: 1_700_000_000 + Double(idx)),
