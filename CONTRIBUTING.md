@@ -5,7 +5,7 @@ Vayen is small on purpose, and the best contributions keep it that way.
 
 ## Before you start
 
-Read the [README](README.md) and skim [planning/architecture.md](planning/architecture.md).
+Read the [README](README.md) and skim [docs/architecture.md](docs/architecture.md).
 The architecture doc explains the boundaries that reviewers will hold you to, especially the read-only rule and the data boundary.
 
 For anything larger than a bug fix, open an issue or a discussion first so we can agree on the shape before you write code.
@@ -69,7 +69,7 @@ It has to be green before review.
 
 The intended cost of a new coding agent is one type conforming to `HarnessAdapter` plus fixtures.
 Start by documenting where the harness persists sessions on macOS, what a record looks like, and which fields are reliable.
-Put that in `planning/research-sessions.md` under a new heading.
+Put that in a new `docs/harness-<name>.md` so the next person can check your assumptions.
 Then implement discovery, normalization, and load against fixtures before touching real data.
 If you find yourself editing `SessionCatalog`, `EvidenceBuilder`, or the coordinator to make an adapter work, stop and open an issue.
 That means the boundary is wrong and we should fix it rather than work around it.

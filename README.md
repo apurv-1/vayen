@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/icon.png" alt="Vayen" width="128">
+</p>
+
 <h1 align="center">Vayen</h1>
 
 <p align="center">
@@ -25,7 +29,7 @@
 > The core library and a command-line tool build and run against real Claude Code sessions today.
 > The menu bar app and the live voice loop are under active development and are not yet usable.
 > There is no signed build, no Homebrew tap, and no release yet.
-> If you want to follow along, watch the repo or read the [planning notes](planning/HANDOFF.md).
+> If you want to follow along, watch the repo or read the [architecture notes](docs/architecture.md).
 
 ## The problem
 
@@ -230,7 +234,7 @@ Packages/VayenCore/         Swift package. All logic lives here and is testable 
   Tests/VayenCoreTests/     Fixture-based tests (synthetic transcripts only)
 Vayen/                      SwiftUI menu bar app (placeholder today)
 Vayen.xcodeproj             Xcode project for signing, entitlements, resources
-planning/                   Product brief, decisions, architecture, research
+docs/                       Architecture and design notes
 ```
 
 ## Contributing

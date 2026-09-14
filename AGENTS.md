@@ -1,13 +1,13 @@
 # Vayen agent instructions
 
 Vayen is a read-only macOS menu bar observer for local coding agent sessions.
-Read README.md and planning/architecture.md before changing anything.
+Read README.md and docs/architecture.md before changing anything.
 
 ## Layout
 
 - `Packages/VayenCore` holds all logic and is the only place tests live. Build and test with `swift build` and `swift test` from that directory.
 - `Vayen/` and `Vayen.xcodeproj` are the thin SwiftUI app shell. No parsing, evidence, or provider code goes there.
-- `planning/` is the decision record. Update `planning/decision-canvas.md` when a product decision changes; do not leave decisions only in chat.
+- `docs/` holds the public architecture notes. Update `docs/architecture.md` when a boundary or data flow changes; it must describe the code, not the plan.
 
 ## Hard rules
 
