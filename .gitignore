@@ -17,3 +17,6 @@ xcuserdata/
 # Editors
 *.swp
 *~
+
+# Internal working docs (not for the public repo)
+planning/
