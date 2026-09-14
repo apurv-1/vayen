@@ -5,7 +5,7 @@
 <h1 align="center">Vayen</h1>
 
 <p align="center">
-  <em>Talk to your coding agents' sessions. Not to the agents. About them.</em>
+  <em>Talk to your AI agents</em>
 </p>
 
 <p align="center">
