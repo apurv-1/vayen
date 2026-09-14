@@ -1,0 +1,117 @@
+<div id="vayen-direction" aria-label="Vayen native Mac concept">
+  <style>
+    #vayen-direction { --vy-bg: light-dark(#f7f6f2,#222320); --vy-ink: light-dark(#242722,#eeeee8); --vy-muted: light-dark(#62665e,#b4b9ad); --vy-line: light-dark(#dcded5,#44483f); --vy-accent: light-dark(#3e604c,#b3cdb7); --vy-tint: light-dark(#e8ede5,#30392f); color:var(--vy-ink); font-family:-apple-system,BlinkMacSystemFont,sans-serif; }
+    #vayen-direction * { box-sizing:border-box; }
+    #vayen-direction .vy-meta { color:var(--vy-muted); font-size:12px; line-height:1.5; }
+    #vayen-direction .vy-caption { text-align:center; margin:0 0 16px; }
+    #vayen-direction .vy-window { width:100%; max-width:460px; margin:0 auto; border:1px solid var(--vy-line); border-radius:18px; background:var(--vy-bg); padding:22px; box-shadow:0 14px 40px light-dark(#24272212,#00000030); }
+    #vayen-direction .vy-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px; }
+    #vayen-direction .vy-brand { font-size:19px; font-weight:500; letter-spacing:-.5px; }
+    #vayen-direction button { font:inherit; font-size:13px; color:var(--vy-ink); border:1px solid var(--vy-line); background:var(--vy-bg); border-radius:8px; padding:9px 12px; cursor:pointer; }
+    #vayen-direction button:hover { background:var(--vy-tint); }
+    #vayen-direction .vy-primary { background:var(--vy-ink); color:var(--vy-bg); border-color:var(--vy-ink); }
+    #vayen-direction .vy-primary:hover { opacity:.85; background:var(--vy-ink); }
+    #vayen-direction .vy-row { padding:18px 0; border-top:1px solid var(--vy-line); }
+    #vayen-direction .vy-title { font-size:15px; font-weight:500; line-height:1.4; margin:6px 0; }
+    #vayen-direction .vy-row-end { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; }
+    #vayen-direction .vy-state { font-size:12px; color:var(--vy-accent); }
+    #vayen-direction .vy-foot { border-top:1px solid var(--vy-line); padding-top:15px; margin-top:10px; }
+    #vayen-direction .vy-question { font-size:14px; color:var(--vy-muted); margin:24px 0 12px; line-height:1.5; }
+    #vayen-direction .vy-answer { font-size:18px; font-weight:400; line-height:1.55; letter-spacing:-.2px; margin:0 0 20px; }
+    #vayen-direction .vy-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    #vayen-direction .vy-evidence { border-top:1px solid var(--vy-line); padding-top:16px; margin-top:18px; font-size:13px; line-height:1.6; }
+    #vayen-direction .vy-evidence p { margin:0 0 12px; }
+    #vayen-direction [hidden] { display:none; }
+    @media(max-width:380px) { #vayen-direction .vy-window { padding:16px; } }
+    @media(pointer:coarse) { #vayen-direction button { min-height:44px; } }
+  </style>
+  <div class="vy-meta vy-caption">Design concept · fictional session evidence · no microphone or API access</div>
+  <div class="vy-window">
+    <div class="vy-top"><span class="vy-brand">vayen</span><span class="vy-meta" id="vy-header-state">2 recent sessions</span></div>
+    <div id="vy-list">
+      <div class="vy-row">
+        <span class="vy-meta">Claude Code · unsloth</span>
+        <div class="vy-title">Fix tokenizer caching</div>
+        <span class="vy-meta">~/code/unsloth</span>
+        <div class="vy-row-end"><span class="vy-state">Activity observed · 12s ago</span><button type="button" class="vy-primary" id="vy-talk">Talk</button></div>
+      </div>
+      <div class="vy-row">
+        <span class="vy-meta">Claude Code · project-x</span>
+        <div class="vy-title">Refactor auth middleware</div>
+        <span class="vy-meta">~/code/project-x</span>
+        <div class="vy-row-end"><span class="vy-meta">No recent activity · 14m ago</span><span class="vy-meta">Preview only</span></div>
+      </div>
+      <div class="vy-meta vy-foot">Session files stay on this Mac. Talk uses selected context in the cloud.</div>
+    </div>
+    <div id="vy-conversation" hidden>
+      <div class="vy-meta">Claude Code · unsloth</div>
+      <div class="vy-title">Fix tokenizer caching</div>
+      <div class="vy-question">“What was this agent working on?”</div>
+      <div id="vy-ready" class="vy-answer">A little context.<br>Then you're back in it.</div>
+      <div id="vy-response" hidden>
+        <p class="vy-answer">The task is to fix stale tokenizer settings. Claude changed the cache key and added a regression test. I haven't seen a passing test result yet.</p>
+        <div class="vy-meta">Transcript evidence through 10:42:16 · illustrative answer</div>
+      </div>
+      <div class="vy-actions" style="margin-top:22px">
+        <button type="button" class="vy-primary" id="vy-answer-button">Preview spoken answer</button>
+        <button type="button" id="vy-evidence-button" aria-expanded="false" hidden>Show evidence</button>
+        <button type="button" id="vy-back">Back</button>
+      </div>
+      <div id="vy-evidence" class="vy-evidence" hidden>
+        <p><span class="vy-meta">Original request · sample event 01</span><br>“Fix stale tokenizer settings after changing configuration.”</p>
+        <p><span class="vy-meta">Edit result · sample event 07</span><br>Cache-key update and regression test recorded.</p>
+        <p><span class="vy-meta">Evidence limit</span><br>No completed test result in this snapshot. Current repository state has not been inspected.</p>
+      </div>
+      <div class="vy-meta vy-foot" id="vy-mic-note">Mic off · preview only</div>
+    </div>
+  </div>
+  <script>
+  (() => {
+    const root = document.getElementById('vayen-direction');
+    const el = id => root.querySelector('#' + id);
+    const state = { palette: 'Warm mineral', radius: 18 };
+    function render() {
+      const warm = state.palette === 'Warm mineral';
+      root.style.setProperty('--vy-bg', warm ? 'light-dark(#f7f6f2,#222320)' : 'light-dark(#f5f6f8,#202328)');
+      root.style.setProperty('--vy-ink', warm ? 'light-dark(#242722,#eeeee8)' : 'light-dark(#222831,#edf0f5)');
+      root.style.setProperty('--vy-muted', warm ? 'light-dark(#62665e,#b4b9ad)' : 'light-dark(#5e6774,#b0bbca)');
+      root.style.setProperty('--vy-line', warm ? 'light-dark(#dcded5,#44483f)' : 'light-dark(#d7dce3,#424b59)');
+      root.style.setProperty('--vy-accent', warm ? 'light-dark(#3e604c,#b3cdb7)' : 'light-dark(#425c82,#acc4e7)');
+      root.style.setProperty('--vy-tint', warm ? 'light-dark(#e8ede5,#30392f)' : 'light-dark(#e6eaf0,#303946)');
+      root.querySelector('.vy-window').style.borderRadius = state.radius + 'px';
+    }
+    el('vy-talk').addEventListener('click', () => {
+      el('vy-list').hidden = true;
+      el('vy-conversation').hidden = false;
+      el('vy-header-state').textContent = 'Conversation preview';
+      el('vy-answer-button').focus();
+    });
+    el('vy-back').addEventListener('click', () => {
+      el('vy-list').hidden = false;
+      el('vy-conversation').hidden = true;
+      el('vy-header-state').textContent = '2 recent sessions';
+      el('vy-talk').focus();
+    });
+    el('vy-answer-button').addEventListener('click', () => {
+      el('vy-ready').hidden = true;
+      el('vy-response').hidden = false;
+      el('vy-evidence-button').hidden = false;
+      el('vy-answer-button').textContent = 'Answer previewed';
+      el('vy-mic-note').textContent = 'Mic off · concise answer, details on request';
+    });
+    el('vy-evidence-button').addEventListener('click', () => {
+      const opened = el('vy-evidence').hidden;
+      el('vy-evidence').hidden = !opened;
+      el('vy-evidence-button').setAttribute('aria-expanded', String(opened));
+      el('vy-evidence-button').textContent = opened ? 'Hide evidence' : 'Show evidence';
+    });
+    el('vy-response').setAttribute('aria-live', 'polite');
+    render();
+    if (globalThis.Tweak) {
+      const tweak = new Tweak({ container: root, onChange: render });
+      tweak.addSelect(state, 'palette', { label: 'Native palette', options: ['Warm mineral', 'Cool graphite'] });
+      tweak.addSlider(state, 'radius', { label: 'Window corners', min: 10, max: 22, step: 2, unit: 'px' });
+    }
+  })();
+  </script>
+</div>
