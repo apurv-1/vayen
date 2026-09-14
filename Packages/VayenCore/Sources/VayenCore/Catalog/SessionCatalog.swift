@@ -206,7 +206,9 @@ public actor SessionCatalog {
             }
             if read.status == .missing || read.lines.isEmpty { continue }
             sawAnyAppend = true
-            var dedup = Set(read.cursor.recentEventIDs)
+            // Suppress re-emitted records (resumes, retries) by comparing against
+            // every event already loaded for this session, not just this batch.
+            var dedup = Set(loaded.events.compactMap(\.eventID))
             for (recordIndex, line) in read.lines {
                 let output = adapter.normalize(line: line, fileKey: fileKey, generation: read.generation, recordIndex: recordIndex)
                 if !output.lineValid {
@@ -225,10 +227,6 @@ public actor SessionCatalog {
                     lastTurnEndAt = max(lastTurnEndAt ?? .distantPast, t)
                 }
             }
-            // Keep the dedup set bounded inside the cursor.
-            var updated = fileCursors[fileKey] ?? read.cursor
-            updated.recentEventIDs = Array(dedup).suffix(512).map { $0 }
-            fileCursors[fileKey] = updated
         }
 
         loaded.events.append(contentsOf: newEvents)
