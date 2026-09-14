@@ -3,7 +3,9 @@
 
 # SwiftPM
 .build/
+Packages/*/.build
 .swiftpm/
+!.swiftpm/Package.resolved
 
 # Xcode
 DerivedData/
@@ -13,10 +15,14 @@ xcuserdata/
 *.xcscmblueprint
 *.xcodeproj/project.xcworkspace/xcuserdata/
 *.xcodeproj/xcuserdata/
+*.dSYM
 
 # Editors
 *.swp
 *~
+
+# Local agent overrides
+AGENTS.local.md
 
 # Internal working docs (not for the public repo)
 planning/
