@@ -27,10 +27,11 @@ public struct TailReadResult: Sendable {
     }
 }
 
+/// File replacement identity. Size is deliberately excluded: appends change
+/// size, and appended data must be read, not treated as a new file.
 struct FileIdentity: Equatable, Sendable {
     var device: UInt64
     var inode: UInt64
-    var size: UInt64
 }
 
 /// Incremental reader for JSONL transcript files.
@@ -62,7 +63,7 @@ public actor TranscriptTailer {
             return TailReadResult(status: .missing, lines: [], cursor: cursor, generation: generations[fileKey] ?? 0)
         }
 
-        let identity = currentIdentity(url: url, size: size)
+        let identity = currentIdentity(url: url)
         var generation = generations[fileKey] ?? 0
         var byteOffset = cursor.byteOffset
         var recordIndex = cursor.recordIndex
@@ -135,7 +136,7 @@ public actor TranscriptTailer {
         return TailReadResult(status: status, lines: lines, cursor: newCursor, generation: generation)
     }
 
-    private func currentIdentity(url: URL, size: UInt64) -> FileIdentity {
+    private func currentIdentity(url: URL) -> FileIdentity {
         var device: UInt64 = 0
         var inode: UInt64 = 0
         if let handle = try? FileHandle(forReadingFrom: url) {
@@ -146,6 +147,6 @@ public actor TranscriptTailer {
             }
             try? handle.close()
         }
-        return FileIdentity(device: device, inode: inode, size: size)
+        return FileIdentity(device: device, inode: inode)
     }
 }
