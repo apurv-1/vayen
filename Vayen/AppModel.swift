@@ -18,9 +18,9 @@ final class AppModel: ObservableObject {
     }
 
     enum MenuBarState: String {
-        case idle, thinking, listening, speaking, activity
+        case idle, badge
 
-        var assetName: String { "MenuBar" + rawValue.prefix(1).uppercased() + rawValue.dropFirst() }
+        var assetName: String { rawValue == "idle" ? "MenuBarIdle" : "MenuBarBadge" }
     }
 
     // List state
@@ -41,12 +41,11 @@ final class AppModel: ObservableObject {
     @Published var micOn = false
     @Published var draft = ""
 
+    /// Badge when a conversation is live or new activity landed; otherwise idle.
     var menuBarState: MenuBarState {
         switch convoStatus {
-        case .connecting, .thinking: return .thinking
-        case .listening: return .listening
-        case .speaking: return .speaking
-        default: return newActivityAvailable ? .activity : .idle
+        case .connecting, .ready, .listening, .thinking, .speaking: return .badge
+        default: return newActivityAvailable ? .badge : .idle
         }
     }
 
