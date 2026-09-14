@@ -1,0 +1,65 @@
+name: Bug report
+description: Report something Vayen does wrong
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the behavior you saw.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: Describe what you expected to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps that trigger the problem.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: "15.x"
+    validations:
+      required: true
+  - type: input
+    id: xcode-version
+    attributes:
+      label: Xcode / Swift version
+      description: Output of `swift --version`.
+    validations:
+      required: true
+  - type: input
+    id: claude-code-version
+    attributes:
+      label: Claude Code version
+      description: Or the coding agent and version you were running.
+    validations:
+      required: false
+  - type: textarea
+    id: discover-output
+    attributes:
+      label: vayen-cli discover output
+      description: Paste the output of `swift run vayen-cli discover` with paths redacted.
+      render: text
+    validations:
+      required: false
+  - type: checkboxes
+    id: redaction-check
+    attributes:
+      label: Redaction
+      options:
+        - label: I have removed any real transcript content, file paths, and keys from this report.
+          required: true

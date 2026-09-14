@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url: https://github.com/apurv-1/vayen/discussions
+    about: Questions and ideas that are not ready to be an issue.
+  - name: Security advisories
+    url: https://github.com/apurv-1/vayen/security/advisories/new
+    about: Report a vulnerability privately. Do not open a public issue.
